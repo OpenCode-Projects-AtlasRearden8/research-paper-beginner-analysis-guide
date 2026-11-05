@@ -1,0 +1,202 @@
+/* Reading Research Papers — beginner's guide site styles.
+   Local-first: no webfonts, no external requests. */
+
+:root {
+  --ink: #2b2620;
+  --paper: #fdfbf6;
+  --panel: #f4efe3;
+  --accent: #3d6b52;
+  --accent-soft: #e4efe8;
+  --line: #e0d8c6;
+  --muted: #6f675a;
+  --warn: #8a4b2a;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  line-height: 1.65;
+  font-size: 1.02rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 16rem 1fr;
+  max-width: 68rem;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.skip {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  background: var(--accent);
+  color: #fff;
+  padding: .4rem .8rem;
+}
+.skip:focus { left: .5rem; top: .5rem; z-index: 10; }
+
+nav {
+  background: var(--panel);
+  border-right: 1px solid var(--line);
+  padding: 1.4rem 1rem 2rem;
+  font-size: .92rem;
+}
+
+.brand a {
+  font-family: Georgia, serif;
+  font-weight: bold;
+  font-size: 1.05rem;
+  color: var(--accent);
+  text-decoration: none;
+  display: block;
+}
+
+.brand-sub {
+  display: block;
+  font-size: .72rem;
+  color: var(--muted);
+  margin-top: .2rem;
+  margin-bottom: 1rem;
+}
+
+nav ul { list-style: none; padding: 0; margin: 0; }
+
+nav li { margin: .25rem 0; }
+
+nav a {
+  display: block;
+  padding: .3rem .55rem;
+  border-radius: .4rem;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+nav a:hover { background: var(--accent-soft); color: var(--accent); }
+
+nav li.current a {
+  background: var(--accent);
+  color: #fff;
+}
+
+.nav-note {
+  margin-top: 1.2rem;
+  font-size: .75rem;
+  font-style: italic;
+  color: var(--warn);
+  border-top: 1px dashed var(--line);
+  padding-top: .8rem;
+}
+
+main {
+  padding: 2.4rem 2.6rem 3rem;
+  max-width: 52rem;
+}
+
+main h1 {
+  font-size: 1.85rem;
+  line-height: 1.25;
+  color: var(--accent);
+  border-bottom: 3px solid var(--accent-soft);
+  padding-bottom: .5rem;
+  margin-top: 0;
+}
+
+main h2 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  color: var(--accent);
+}
+
+main h3 { font-size: 1.12rem; margin-top: 1.5rem; }
+
+a { color: var(--accent); }
+
+a:hover { color: var(--warn); }
+
+code {
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: .88em;
+  background: var(--panel);
+  padding: .08em .35em;
+  border-radius: .3em;
+}
+
+pre {
+  background: var(--panel);
+  padding: .9rem 1.1rem;
+  border: 1px solid var(--line);
+  border-radius: .6rem;
+  overflow-x: auto;
+}
+pre code { background: none; padding: 0; }
+
+blockquote {
+  margin: 1.6rem 0;
+  padding: .8rem 1.2rem;
+  background: var(--accent-soft);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 .5rem .5rem 0;
+  font-style: italic;
+}
+blockquote p { margin: .3rem 0; }
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2rem 0;
+  font-size: .95rem;
+}
+
+th, td {
+  text-align: left;
+  padding: .45rem .7rem;
+  border: 1px solid var(--line);
+  vertical-align: top;
+}
+
+th { background: var(--panel); }
+
+tr:nth-child(even) td { background: #faf6ec; }
+
+hr {
+  border: none;
+  border-top: 1.5px dashed var(--line);
+  margin: 2rem 0;
+}
+
+ol, ul { padding-left: 1.4rem; }
+li { margin: .3rem 0; }
+
+.page-footer {
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--line);
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+.page-footer p:first-child {
+  font-style: italic;
+  color: var(--warn);
+}
+
+.page-footer .fine { font-size: .75rem; }
+
+input[type="checkbox"] { accent-color: var(--accent); }
+
+@media (max-width: 56rem) {
+  .layout { grid-template-columns: 1fr; }
+  nav {
+    border-right: none;
+    border-bottom: 1px solid var(--line);
+  }
+  main { padding: 1.6rem 1.2rem 2.4rem; }
+}
